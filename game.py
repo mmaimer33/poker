@@ -150,10 +150,23 @@ class Game:
             raise Exception("Invalid move")
         
     def check_win(self):
-        return False
+        active_players = [player for player in self.players if player.is_active]
+        if len(active_players) == 1:
+            return active_players[0]
+        return None
     
     def showdown(self):
-        return
+        best_hand_player = [player for player in self.players if player.is_active][0]
+        best_hand = Hand(best_hand_player.hand, self.community_cards)
+        for player in self.players:
+            if not player.is_active:
+                continue
+            player_hand = Hand(player.hand, self.community_cards)
+            if player_hand.rank > best_hand.rank:
+                best_hand_player = player
+                best_hand = player_hand
+        
+        return best_hand_player
 
     def play(self):
         if (self.num_players < 2):

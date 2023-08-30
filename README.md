@@ -33,7 +33,7 @@ Others can be discussed.
 3. Start writing `player.py`.
 
 ## Provided Files
-- `player.py` has a template for the `Player` class that you will need to extend.
+- `player.py` has a template for the `Player` class that you will need to extend. DO NOT modify the `Player` class. Only override the `play_turn` method.
 - `game.py` is the main file that will run the game.
 
 Good luck and have fun!
